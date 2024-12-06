@@ -3,7 +3,7 @@ package com.example.cine.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cine.Pelicula
+import com.example.cine.clase_datos.Pelicula
 import com.example.cine.R
 
 class PeliculaAdapter(private val listFilm:List<Pelicula>) : RecyclerView.Adapter<PeliculaViewHolder>() {
