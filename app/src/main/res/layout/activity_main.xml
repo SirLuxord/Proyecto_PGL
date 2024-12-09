@@ -22,11 +22,12 @@
             android:background="?attr/colorPrimary"
             android:theme="?attr/actionBarTheme"
             app:title="Películas"
+            app:menu="@menu/list_menu"
             app:titleTextColor="@color/white" />
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/peliculasRecyclerView"
+            android:id="@+id/listaReciclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
