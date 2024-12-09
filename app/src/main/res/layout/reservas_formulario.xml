@@ -28,7 +28,7 @@
             app:layout_constraintVertical_bias="0.0"
             app:menu="@menu/list_menu"
             app:title="Reservas"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="?attr/colorOnPrimary" />
 
         <TextView
             android:id="@+id/peliculaTextView"

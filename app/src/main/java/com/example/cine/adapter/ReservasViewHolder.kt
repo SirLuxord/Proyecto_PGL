@@ -20,5 +20,4 @@ class ReservasViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             onCloseClick(reservaItem)
         }
     }
-
 }

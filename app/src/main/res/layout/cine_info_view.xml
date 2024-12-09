@@ -29,7 +29,7 @@
             app:layout_constraintVertical_bias="0.0"
             app:title="Películas"
             app:menu="@menu/list_menu"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="?attr/colorOnPrimary" />
 
         <ImageView
             android:id="@+id/horizontalPeliculaImageView"

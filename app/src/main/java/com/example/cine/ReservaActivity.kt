@@ -13,7 +13,6 @@ import com.example.cine.databinding.ReservasFormularioBinding
 import com.example.cine.model.Pelicula
 import com.example.cine.model.PeliculasProvider
 import com.example.cine.model.Reservas
-import com.example.cine.viewmodel.PeliculaViewModel
 import com.example.cine.viewmodel.ReservaViewMovel
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -33,7 +32,15 @@ class ReservaActivity : BaseActivity() {
         enableEdgeToEdge()
         binding = ReservasFormularioBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Toolbar y NavigationDrawer
         setupToolbar(binding.toolbar, getString(R.string.reservas))
+
+        setupNavigationDrawer(
+            findViewById(R.id.crearReservaActivity),
+            findViewById(R.id.navigation_view)
+        )
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.crearReservaActivity)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -60,6 +67,8 @@ class ReservaActivity : BaseActivity() {
         binding.spinnerPeliculas.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 peliculaSeleccionada = PeliculasProvider.listFilms[position]
+                binding.dateEditText.setText("")
+                binding.timeEditText.setText("")
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}

@@ -8,8 +8,10 @@ import com.example.cine.R
 import com.example.cine.model.Reservas
 
 
-class ReservasAdapter(private val reservasList: MutableList<Reservas>) :
-    RecyclerView.Adapter<ReservasViewHolder>() {
+class ReservasAdapter(
+    private val reservasList: MutableList<Reservas>,
+    private val onReservaRemoved: (Reservas) -> Unit
+) : RecyclerView.Adapter<ReservasViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReservasViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -19,9 +21,11 @@ class ReservasAdapter(private val reservasList: MutableList<Reservas>) :
     override fun onBindViewHolder(holder: ReservasViewHolder, position: Int) {
         val reserva = reservasList[position]
         holder.bind(reserva) { reservaToRemove ->
-            reservasList.remove(reservaToRemove)
+            reservasList.removeAt(position)
             notifyItemRemoved(position)
-            notifyItemRangeChanged(position, itemCount)
+
+            // Notificar al ViewModel que se eliminó la reserva
+            onReservaRemoved(reservaToRemove)
         }
     }
 

@@ -23,7 +23,7 @@
             android:theme="?attr/actionBarTheme"
             app:title="Películas"
             app:menu="@menu/list_menu"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="?attr/colorOnPrimary" />
 
 
         <androidx.recyclerview.widget.RecyclerView

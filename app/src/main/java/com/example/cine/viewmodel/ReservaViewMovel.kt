@@ -14,4 +14,9 @@ class ReservaViewMovel(application: Application) : AndroidViewModel(application)
         val currentList = _reservas.value ?: emptyList()
         _reservas.value = currentList + reserva
     }
+
+    fun eliminarReserva(reserva: Reservas) {
+        val currentList = _reservas.value ?: emptyList()
+        _reservas.value = currentList.filter { it != reserva }
+    }
 }

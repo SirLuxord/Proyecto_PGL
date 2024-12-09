@@ -11,6 +11,7 @@ import com.example.cine.adapter.ReservasAdapter
 import com.example.cine.databinding.ActivityMainBinding
 import com.example.cine.model.Pelicula
 import com.example.cine.model.PeliculasProvider
+import com.example.cine.model.Reservas
 import com.example.cine.viewmodel.ReservaViewMovel
 
 class ListaReservasActivity : BaseActivity() {
@@ -26,7 +27,15 @@ class ListaReservasActivity : BaseActivity() {
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Toolbar y NavigationDrawer
         setupToolbar(binding.toolbar, getString(R.string.reservas))
+
+        setupNavigationDrawer(
+            findViewById(R.id.main),
+            findViewById(R.id.navigation_view)
+        )
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -42,7 +51,9 @@ class ListaReservasActivity : BaseActivity() {
 
     private fun initRecyclerView() {
         // Inicializar reservasAdapter con una lista vacía
-        reservasAdapter = ReservasAdapter(mutableListOf())
+        reservasAdapter = ReservasAdapter(mutableListOf()) { reserva ->
+            eliminarReserva(reserva)
+        }
         binding.listaReciclerView.layoutManager = LinearLayoutManager(this)
         binding.listaReciclerView.adapter = reservasAdapter
     }
@@ -52,4 +63,10 @@ class ListaReservasActivity : BaseActivity() {
             reservasAdapter.submitList(reservas.toMutableList())
         }
     }
+
+    private fun eliminarReserva(reserva: Reservas) {
+        // Notificar al ViewModel para que actualice la lista
+        reservaViewModel.eliminarReserva(reserva)
+    }
+
 }
