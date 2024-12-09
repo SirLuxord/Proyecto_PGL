@@ -10,7 +10,9 @@ class PeliculasProvider {
             Pelicula(
                 "Avatar",
                 "Aventura y acción",
-                "Aquí esta la sinopsis",
+                "Entramos en el mundo Avatar de la mano de Jake Sully, un ex-Marine en silla de ruedas, " +
+                        "que ha sido reclutado para viajar a Pandora, donde existe un mineral raro y muy preciado " +
+                        "que puede solucionar la crisis energética existente en la Tierra.",
                 R.drawable.avatar_vertical,
                 R.drawable.avatar_horizontal,
                 fechaList = listOf(
@@ -27,7 +29,9 @@ class PeliculasProvider {
             Pelicula(
                 "Batman",
                 "Superhéroes y acción",
-                "Aquí esta la sinopsis",
+                "En su segundo año luchando contra el crimen, Batman explora la corrupción existente en la ciudad " +
+                        "de Gotham y el vínculo de esta con su propia familia. Además, entrará en conflicto con un asesino " +
+                        "en serie conocido como \"el Acertijo\".",
                 R.drawable.batman_vertical,
                 R.drawable.batman_horizontal,
                 fechaList = listOf(
@@ -44,7 +48,9 @@ class PeliculasProvider {
             Pelicula(
                 "My Little Pony",
                 "Infantil y aventura",
-                "Aquí esta la sinopsis",
+                "Después de que una fuerza oscura conquista Canterlot, las Mane 6 se embarcan en un viaje inolvidable " +
+                        "más allá de Equestria para salvar su patria. Allí conocerán a nuevos amigos, como Capper, La Reina " +
+                        "Novo y su hija Skystar, o la Capitana Gelaeno, y se enfrentarán a desafíos emocionantes.",
                 R.drawable.my_little_pony_vertical,
                 R.drawable.my_little_pony_horizontal,
                 fechaList = listOf(
